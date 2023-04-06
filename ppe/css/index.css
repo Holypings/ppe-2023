@@ -1,0 +1,36 @@
+.chevau{
+  position: relative;
+  margin-top: -1000px;
+}
+
+.incroyable{
+  background-color: aqua;
+  color: red;
+  font-size: 25px;
+  width: 400px;
+  
+}
+
+body {
+  background-image: url(img/accueil.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.item{
+  margin-top: 2px;
+  background-color: white ;
+  width: 500px;
+  height: 150px;
+}
+
+.img{
+  position: relative;
+  float: right;
+  height: 150px;
+  margin-left: 10px;
+}
+
+.prix{
+  size: 50px;
+}
