@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+
+
+
+    <script>
+        function verifier () {
+          alert("Vérification");
+    
+          //chek prenom
+          var ctrlpren = document.getElementsByName("pseudo")[0]
+          if (ctrlpren.value.length < 2)
+          {
+            ctrlpren.style.border = "2px solid red";
+            document.getElementById("errnom").style.color ="red"
+          }
+          else{
+        ctrlpren.style.border = "2px solid black";
+        document.getElementById("errnom").style.color ="whitesmoke"
+      }
+    
+    
+    
+    
+         return false;
+    
+        }
+      </script>
+
+
+
+
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="menu">
+                <li> <a href="connection.htm" class="text">Connexion</a></li>
+            </div>
+            <div class="menu">
+                <li> <a href="acceuil.htm" class="text">Acceuil</a></li>
+            </div>
+        </nav>
+    </header>
+
+    <div class="forme">
+        <form method="get" onsubmit=" return verifier()">
+            <h1>Inscription</h1>
+            <p>Nom de compte:</p>
+            <input type="text" name="pseudo">
+            <div class="erreur" id="errnom">Nom obligatoire</div>
+            <label for="start">Date de Naissance:</label>
+            <input type="date" id="start" name="trip-start" min="1930-01-01" max="2022-11-14">
+            <p>Address Mail:</p>
+            <input type="email" name="email" placeholder="Exemple@exemple.com">
+            <p>Mot-de-passe:</p>
+            <input type="password" name="mdp" placeholder="Minimum 8 caractères" minlength="8" maxlength="64">
+            <p>Confirmer Mot-de-passe:</p>
+            <input type="password"name="cmdp" minlength="8" maxlength="64"> <br> <br>
+            <input type="submit" name="connection" value="connection" style="width: 170px;">
+        </form>
+        <!--
+            <script src="chemin/vers/le/script.js"></script>
+            css/
+            position :relative ou absolute
+            top:200px;
+
+
+            action="inscription.exe" dans le form
+        -->
+</body>
+
+
+
+
+</html>
