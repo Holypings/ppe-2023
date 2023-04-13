@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-require_once("db.php");
-?>
 
 <head>
     <meta charset="utf-8" />
@@ -20,30 +17,29 @@ require_once("header.php")
 </header>
 
 <?php
-if(isset($_POST['submit']))
-{
+if(!empty($_POST)){
+    if(
+        isset($_POST["mail"],$_POST["pwd"],$_POST["conpwd"],$_POST["prenom"],$_POST["nom"],$_POST["lieu"],$_POST["age"])
+        && !empty($_POST["mail"]) && !empty($_POST["pwd"]) && !empty($_POST["conpwd"]) && !empty($_POST["prenom"]) && !empty($_POST["nom"]) && !empty($_POST["lieu"]) && !empty($_POST["age"])
 
-$mail = htmlentities(trim($_POST['mail']));
-$mdp = htmlentities(trim($_POST['mdp']));
-$conmdp = htmlentities(trim($_POST['conmdp']));
-$prenom = htmlentities(trim($_POST['prenom']));
-$nom = htmlentities(trim($_POST['nom']));
-$adresse = htmlentities(trim($_POST['adresse']));
-$dateden = htmlentities(trim($_POST['dateden']));
-    if($mail&&$mdp&&$conmdp&&$prenom&&$nom&&$adresse&&$dateden)
-    {
-        if ($mdp==$conmdp)
-        {
-            $sql="INSERT INTO user VALUES (null,'" . $nom ."','". $prenom ."','". $mdp ."','". $adresse ."','". $dateden ."','". $mail ."')";
-            $result = mysqli_query($conn, $sql);
-            
-            echo $sql ;
-            die();
-        
-        }else echo "Les deux mots de passe son différent";
-    }else echo"Des champs son incomplets";
-// aa
-}
+    ){
+
+    }else{
+        die("le formulaire n'est pas complet");
+    }
+} 
+
+require_once("db.php");
+
+// $prenom = $_POST["prenom"];
+// $nom = $_POST["nom"];
+// $mail = $_POST["mail"];
+// $adresse = $_POST["lieu"];
+// $dateden = $_POST["age"];
+// $mdp = $_POST["pwd"];
+
+// $sql = "INSERT INTO user VALUES (null,'" . $prenom . "','" . $nom  . "','" . 
+//     $mail . "','" . $adresse . "','" . $dateden . "','" . $mdp . "')"; 
 
 ?>
 <body>
@@ -59,8 +55,8 @@ $dateden = htmlentities(trim($_POST['dateden']));
     <!-- action="" -->
     <form method="POST">
         <input type="email" name="mail" placeholder="Email" /> <br>
-        <input type="password" name="mdp" placeholder="Mot de passe"  /><br>
-        <input type="password" name="conmdp" placeholder="Confirmer" /><br>
+        <input type="password" name="pwd" placeholder="Mot de passe"  /><br>
+        <input type="password" name="conpwd" placeholder="Confirmer" /><br>
         <input type="checkbox" name="Aff" />Afficher le mot de passe
 
     </div>    
@@ -72,11 +68,11 @@ $dateden = htmlentities(trim($_POST['dateden']));
         <form action="Inscrire.exe" method="GET">
         <input type="text" name="prenom" placeholder="Prénom" /><br>
         <input type="text" name="nom" placeholder="Nom" /><br>
-        <input type="text" name="adresse" placeholder="adresse" /><br>
-        <input type="date" name="dateden" placeholder="Votre anniversaire" /><br>
+        <input type="text" name="lieu" placeholder="adresse" /><br>
+        <input type="date" name="age" placeholder="Votre anniversaire" /><br>
         <input type="checkbox" name="valider"/>J'accepte les conditions<br>
 
-        <input type="submit" value="S'inscrire" name="submit"/>
+        <input type="submit" />
         </div>       
 
     </form>

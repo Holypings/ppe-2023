@@ -19,11 +19,15 @@
     <?php
     require_once("header.php")
     ?>
+    
        <div>
-            <img src="img/accueil.png">
+       
+            <img src="img/test3.png">
             <div class="chevau">
-                <H1 class="incroyable">A lazhahahahaha </H1>
-            <?php
+                <H1 class="incroyable">A la Une </H1> </div>
+           
+                <div class="carousel">
+                <?php
                 $sql = "SELECT * FROM produit";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_array($result)){
@@ -35,7 +39,7 @@
                    echo "<a href='Article.php?id=" . $id . "'>" .  $prod ."</a>";
                    echo "<div class='prix'>" . $prix . ' €' . "</div>";
                    $img = "img/" . $id . ".png";
-                   echo "<div class='img'><img src=" . $img . " width = '100' /></div>";
+                   echo "<div class='img'><img src=" . $img . " width = '300' /></div>";
                    echo "</div>";
                 }
             ?>
