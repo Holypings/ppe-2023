@@ -22,7 +22,7 @@
        <div>
             <img src="img/accueil.png">
             <div class="chevau">
-                <H1 class="incroyable">A la Une </H1>
+                <H1 class="incroyable">A lazhahahahaha </H1>
             <?php
                 $sql = "SELECT * FROM produit";
                 $result = mysqli_query($conn, $sql);
