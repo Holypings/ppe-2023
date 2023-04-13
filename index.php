@@ -25,7 +25,7 @@
             <img src="img/test3.png">
             <div class="chevau">
 
-                <H1 class="incroyable">Aa la Une </H1> </div>
+                <H1 class="incroyable">A la Une </H1> </div>
            
                 <div class="carousel">
                 php>
