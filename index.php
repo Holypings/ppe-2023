@@ -24,10 +24,14 @@
        
             <img src="img/test3.png">
             <div class="chevau">
+
                 <H1 class="incroyable">A la Une </H1> </div>
            
                 <div class="carousel">
-                <?php
+                php>
+
+               
+
                 $sql = "SELECT * FROM produit";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_array($result)){
