@@ -20,15 +20,16 @@
     require_once("header.php")
     ?>
     
-       <div>
        
+          
             <img src="img/test3.png">
-            <div class="chevau">
+           
 
-                <H1 class="incroyable">A la Une </H1> </div>
+            <div> <H1 class="incroyable">A la Une </H1> </div>
+            
            
                 <div class="carousel">
-                php>
+                <?php
 
                
 
@@ -43,12 +44,12 @@
                    echo "<a href='Article.php?id=" . $id . "'>" .  $prod ."</a>";
                    echo "<div class='prix'>" . $prix . ' €' . "</div>";
                    $img = "img/" . $id . ".png";
-                   echo "<div class='img'><img src=" . $img . " width = '300' /></div>";
+                   echo "<div class='img'><img src=" . $img . " width = '500' /></div>";
                    echo "</div>";
                 }
             ?>
             </div>
-        </div>
+        
     
     </section>
 

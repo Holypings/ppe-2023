@@ -1,4 +1,4 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "ppe", "3308");
+$conn = mysqli_connect("localhost", "root", "", "ppe");
 $conn->set_charset("utf8");
 ?>

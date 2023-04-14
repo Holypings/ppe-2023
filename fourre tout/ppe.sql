@@ -2,10 +2,10 @@
 -- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3308
--- Generation Time: Apr 06, 2023 at 06:57 PM
--- Server version: 8.0.18
--- PHP Version: 7.4.0
+-- Hôte : 127.0.0.1:3308
+-- Généré le :  jeu. 13 avr. 2023 à 19:29
+-- Version du serveur :  8.0.18
+-- Version de PHP :  7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ppe`
+-- Base de données :  `ppe`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `couleurkb`
+-- Structure de la table `couleurkb`
 --
 
 DROP TABLE IF EXISTS `couleurkb`;
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `couleurkb` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `couleurkb`
+-- Déchargement des données de la table `couleurkb`
 --
 
 INSERT INTO `couleurkb` (`ID_COULEUR`, `couleurkb`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `couleurkb` (`ID_COULEUR`, `couleurkb`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `couleurled`
+-- Structure de la table `couleurled`
 --
 
 DROP TABLE IF EXISTS `couleurled`;
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `couleurled` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `couleurled`
+-- Déchargement des données de la table `couleurled`
 --
 
 INSERT INTO `couleurled` (`ID_COULED`, `couleurled`) VALUES
@@ -72,7 +72,7 @@ INSERT INTO `couleurled` (`ID_COULED`, `couleurled`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `panier`
+-- Structure de la table `panier`
 --
 
 DROP TABLE IF EXISTS `panier`;
@@ -89,14 +89,14 @@ CREATE TABLE IF NOT EXISTS `panier` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produit`
+-- Structure de la table `produit`
 --
 
 DROP TABLE IF EXISTS `produit`;
 CREATE TABLE IF NOT EXISTS `produit` (
   `ID_KB` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,
-  `prix` decimal(15,3) NOT NULL,
+  `prix` decimal(15,2) NOT NULL,
   `description` text NOT NULL,
   `paveNum` tinyint(1) NOT NULL,
   `taille` varchar(50) NOT NULL,
@@ -112,20 +112,20 @@ CREATE TABLE IF NOT EXISTS `produit` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `produit`
+-- Déchargement des données de la table `produit`
 --
 
 INSERT INTO `produit` (`ID_KB`, `nom`, `prix`, `description`, `paveNum`, `taille`, `cable`, `RGB`, `ID_COULEUR`, `ID_COULED`, `ID_SWITCH`) VALUES
-(1, 'EDENWOOD CWL01', '20.000', 'Touche silencieuse, souris / clavier sans fil très bien.\r\nPratique au quotidien pour le travail', 1, '14 x 50 cm', 0, 0, 2, 5, 1),
-(2, 'ESSENTIELB EB_SK-10-F', '40.000', 'WOW elle est blanche. Merci beaucoup maitre !', 1, '16 / 54 cm', 1, 0, 2, 3, 1),
-(3, 'Logitech MX Keys Advanced ', '100.000', 'Caramba encore raté', 1, '20 x 60 cm', 0, 1, 2, 3, 1),
-(4, 'Logitech K280e', '35.000', 'Oui Oui Oui vous saurez tous sur le flamby', 1, '13.50cm', 1, 3, 2, 5, 1),
-(5, 'Dierya DK61se', '31.000', 'Alakazam Abrava Decabra', 0, '16x52cm', 1, 0, 2, 2, 1);
+(1, 'CLEAR 2048 PURPLE', '115.99', 'Touche silencieuse, souris / clavier sans fil très bien.\r\nPratique au quotidien pour le travail', 1, '14 x 50 cm', 0, 0, 2, 5, 1),
+(2, 'NEWMEN GM610', '40.00', 'WOW elle est blanche. Merci beaucoup maitre !', 1, '16 / 54 cm', 1, 0, 2, 3, 1),
+(3, 'GK64XS', '100.00', 'Caramba encore raté', 1, '20 x 60 cm', 0, 1, 2, 3, 1),
+(4, 'AKKO 3068B', '35.00', 'Oui Oui Oui vous saurez tous sur le flamby', 1, '13.50cm', 1, 3, 2, 5, 1),
+(5, 'AKKO 3098D PRUNE', '31.00', 'Alakazam Abrava Decabra', 0, '16x52cm', 1, 0, 2, 2, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `switch`
+-- Structure de la table `switch`
 --
 
 DROP TABLE IF EXISTS `switch`;
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `switch` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `switch`
+-- Déchargement des données de la table `switch`
 --
 
 INSERT INTO `switch` (`ID_SWITCH`, `modele`, `Fabriquant`, `couleur`) VALUES
@@ -147,7 +147,7 @@ INSERT INTO `switch` (`ID_SWITCH`, `modele`, `Fabriquant`, `couleur`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Structure de la table `user`
 --
 
 DROP TABLE IF EXISTS `user`;
@@ -163,25 +163,25 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `user`
+-- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`ID_USER`, `nom`, `prenom`, `mdp`, `adresse`, `dateden`, `mail`) VALUES
 (1, 'Damien', 'Damien', 'Damien.1', 'DamienVille', '2006-06-06', 'Damien@Damien.dam');
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `panier`
+-- Contraintes pour la table `panier`
 --
 ALTER TABLE `panier`
   ADD CONSTRAINT `PANIER_Produit0_FK` FOREIGN KEY (`ID_KB`) REFERENCES `produit` (`ID_KB`),
   ADD CONSTRAINT `PANIER_USER_FK` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID_USER`);
 
 --
--- Constraints for table `produit`
+-- Contraintes pour la table `produit`
 --
 ALTER TABLE `produit`
   ADD CONSTRAINT `Produit_CouleurKB_FK` FOREIGN KEY (`ID_COULEUR`) REFERENCES `couleurkb` (`ID_COULEUR`),
