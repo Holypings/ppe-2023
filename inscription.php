@@ -42,7 +42,7 @@ $dateden = htmlentities(trim($_POST['dateden']));
         
         }else echo "Les deux mots de passe son différent";
     }else echo"Des champs son incomplets";
-
+// aa
 }
 
 ?>
