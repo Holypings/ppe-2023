@@ -20,13 +20,13 @@ if(isset($_POST['submit']))
 
 $mail = htmlentities(trim($_POST['mail']));
 $mdp = htmlentities(trim($_POST['mdp']));
-$conmdp = htmlentities(trim($_POST['conmdp']));
+// $conmdp = htmlentities(trim($_POST['conmdp']));
 
     if($mail&&$mdp&&$conmdp)
     {
         if ($mdp==$conmdp)
         {
-            $sql="INSERT INTO user VALUES (null,'" . $nom ."','". $prenom ."','". $mdp ."','". $adresse ."','". $dateden ."','". $mail ."')";
+            $sql="INSERT INTO user VALUES (null,'". $mdp ."','". $mail ."')";
             $result = mysqli_query($conn, $sql);
             
             echo $sql ;
@@ -44,22 +44,38 @@ $conmdp = htmlentities(trim($_POST['conmdp']));
     <h2>CONNEXION</h2>
     </div>
 
-    <div id="idf">
+    <div id="iden">
     <h3>VOS IDENTIFIANTS :</h3> </div>
     
-    <div id="formu">
+    
     <!-- action="" -->
-    <form method="POST">
-        <input type="email" name="mail" placeholder="Email" /> <br>
-        <input type="password" name="mdp" placeholder="Mot de passe"  /><br>
-        <input type="password" name="conmdp" placeholder="Confirmer" /><br>
-        <input type="checkbox" name="Aff" />Afficher le mot de passe
+    <form name= "fo" method="POST">
+        <div class="input">
+        <input type="email" name="mail" placeholder="Email" /> 
+        </div>
+        
+        <div class="input">
+        
+<input type="password" name="mot de passe" placeholder="Mot de passe" id="mdp"  />
+<input type="checkbox" id="showPassword" name="Mot de passe" />
+<label for="showPassword">Afficher mot de passe</label>
+        </div>
         <input type="submit" value="Connexion" name="submit"/>
 
-    </div>    
 
     </form>
-    </div>
+    <script>
+        document.getElementById('showPassword').onclick = function() {
+    if ( this.checked ) {
+       document.getElementById('mdp').type = "text";
+    } else {
+       document.getElementById('mdp').type = "password";
+    }
+};
+  
+    </script>
+    
+    
 
 </body>
 
