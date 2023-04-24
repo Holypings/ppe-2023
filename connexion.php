@@ -20,7 +20,7 @@ if(isset($_POST['submit']))
 
 $mail = htmlentities(trim($_POST['mail']));
 $mdp = htmlentities(trim($_POST['mdp']));
-// $conmdp = htmlentities(trim($_POST['conmdp']));
+$conmdp = htmlentities(trim($_POST['conmdp']));
 
     if($mail&&$mdp&&$conmdp)
     {
@@ -32,8 +32,8 @@ $mdp = htmlentities(trim($_POST['mdp']));
             echo $sql ;
             die();
         
-        }else echo "Les deux mots de passe son différent";
-    }else echo"Des champs son incomplets";
+        }else echo "Les deux mots de passe sont différent";
+    }else echo"Des champs sont incomplets";
 // aa
 }
 
@@ -56,7 +56,7 @@ $mdp = htmlentities(trim($_POST['mdp']));
         
         <div class="input">
         
-<input type="password" name="mot de passe" placeholder="Mot de passe" id="mdp"  />
+<input type="password" name="mot de passe" placeholder="Mot de passe" id="mdp" /> <br>
 <input type="checkbox" id="showPassword" name="Mot de passe" />
 <label for="showPassword">Afficher mot de passe</label>
         </div>
