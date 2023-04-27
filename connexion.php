@@ -13,25 +13,39 @@
 require_once("header.php")
 ?>
 </header>
+<?php
+require_once("db.php");
+?>
 
 <?php
-if(isset($_POST['submit']))
 
 
 
-// Récupération des informations de connexion du formulaire
-$mail = htmlentities(trim($_POST['mail']));
-$mdp = htmlentities(trim($_POST['mdp']));
+if (isset($_POST['submit'])) {
+   
+    $mail = htmlentities(trim($_POST['mail']));
+    $mdp = htmlentities(trim($_POST['mdp']));
 
-// Vérification des informations de connexion dans la base de données
-$sql = "SELECT * FROM user WHERE mail='$mail' AND mdp='$mdp'";
-$result = $conn->query($conn, $sql);
+    
+    $sql = "SELECT * FROM user WHERE mail='$mail' AND mdp='$mdp'";
+    $result = mysqli_query($conn, $sql);
 
-if ($result->num_rows > 0) {
-    echo "Vous êtes connecté avec succès.";
-} else {
-    echo "Nom d'utilisateur ou mot de passe incorrect.";
+  
+    if ($result->num_rows == 1) {
+      
+        echo "Connecté avec succès";
+    } else {
+      
+        echo "Mail ou mot de passe invalide";
+    }
 }
+
+// Fermez la connexion à la base de données MySQL
+$conn->close();
+
+
+
+
 
 
 
@@ -49,18 +63,18 @@ if ($result->num_rows > 0) {
     <!-- action="" -->
     <form name= "fo" method="POST">
         <div class="input">
-        <input type="email" name="mail" placeholder="Email" /> 
+        <input type="email" name="mail" placeholder="Mail" /> 
         </div>
         
         <div class="input">
         
-<input type="password" name="mot de passe" placeholder="Mot de passe" id="mdp" /> <br>
-<input type="checkbox" id="showPassword" name="Mot de passe" />
+<input type="password" name="mdp" placeholder="Mot de passe" id="mdp" /> <br>
+<input type="checkbox" id="showPassword" name="mdp" />
 <label for="showPassword">Afficher mot de passe</label>
         </div>
         <input type="submit" value="Connexion" name="submit"/>
 
-
+    <!-- afficher mdp avec checkbox -->
     </form>
     <script>
         document.getElementById('showPassword').onclick = function() {
