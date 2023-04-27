@@ -16,26 +16,24 @@ require_once("header.php")
 
 <?php
 if(isset($_POST['submit']))
-{
 
+
+
+// Récupération des informations de connexion du formulaire
 $mail = htmlentities(trim($_POST['mail']));
 $mdp = htmlentities(trim($_POST['mdp']));
-$conmdp = htmlentities(trim($_POST['conmdp']));
 
-    if($mail&&$mdp&&$conmdp)
-    {
-        if ($mdp==$conmdp)
-        {
-            $sql="INSERT INTO user VALUES (null,'". $mdp ."','". $mail ."')";
-            $result = mysqli_query($conn, $sql);
-            
-            echo $sql ;
-            die();
-        
-        }else echo "Les deux mots de passe sont différent";
-    }else echo"Des champs sont incomplets";
-// aa
+// Vérification des informations de connexion dans la base de données
+$sql = "SELECT * FROM user WHERE mail='$mail' AND mdp='$mdp'";
+$result = $conn->query($conn, $sql);
+
+if ($result->num_rows > 0) {
+    echo "Vous êtes connecté avec succès.";
+} else {
+    echo "Nom d'utilisateur ou mot de passe incorrect.";
 }
+
+
 
 ?>
 <body>
