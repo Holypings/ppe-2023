@@ -1,9 +1,3 @@
-<?php
-function isValidMDP($mdp){
-    return preg_match('/^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[#?!@$%^&*-]).{8,}$/', $mdp);
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,6 +34,14 @@ if(isset($_POST['submit']))
     if($mail && $mdp && $conmdp && $prenom && $nom && $adresse && $dateden)
     {
         // Vérification du mot de passe
+        $sql = "SELECT * FROM user WHERE mail='$mail'";
+        $result1 = mysqli_query($conn, $sql);
+        if(mysqli_num_rows($result1) > 0){
+            echo "Cet email est déjà enregistré.";
+            die();
+        }
+
+        
         if(strlen($mdp) < 12) {
             echo "Le mot de passe doit contenir au moins 12 caractères.";
             die();
@@ -52,7 +54,7 @@ if(isset($_POST['submit']))
             echo "Les deux mots de passe sont différents.";
             die();
         }
-        else {
+       else {
             $sql="INSERT INTO user VALUES (null,'" . $nom ."','". $prenom ."','". $mdp ."','". $adresse ."','". $dateden ."','". $mail ."')";
             $result = mysqli_query($conn, $sql);
             echo "Envoi effectué.";
