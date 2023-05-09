@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
 require_once("db.php");
+
 ?>
 
 <head>
@@ -77,6 +78,7 @@ $dateden = htmlentities(trim($_POST['dateden']));
         <input type="checkbox" name="valider"/>J'accepte les conditions<br>
 
         <input type="submit" value="S'inscrire" name="submit"/>
+        <a href="connexion.php" > J'ai déja un compte </a>
         </div>       
 
     </form>

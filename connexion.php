@@ -1,3 +1,8 @@
+<?php
+require_once "db.php";
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,44 +15,44 @@
 
 <header>
 <?php
-require_once("header.php")
+if (isset($_SESSION['ID'])) {
+    include "header connecté.php";
+} else {
+    include "header.php";}
 ?>
 </header>
 <?php
-require_once("db.php");
+require_once "db.php";
+
 ?>
 
 <?php
 
-
-
 if (isset($_POST['submit'])) {
-   
+
     $mail = htmlentities(trim($_POST['mail']));
     $mdp = htmlentities(trim($_POST['mdp']));
 
-    
     $sql = "SELECT * FROM user WHERE mail='$mail' AND mdp='$mdp'";
     $result = mysqli_query($conn, $sql);
 
-  
-    if ($result->num_rows == 1) {
-      
-        echo "Connecté avec succès";
+    $row = mysqli_fetch_array($result);
+
+    if ($row == null) {
+        echo "<H1>Identifiants incorrect </h1>";
+        header("refresh:3; url=connexion.php");
+
     } else {
-      
-        echo "Mail ou mot de passe invalide";
+        $id = $row["ID_USER"];
+        echo $id;
+
+        $_SESSION["ID"] = $id;
+        header("Location: index.php");
     }
 }
 
 // Fermez la connexion à la base de données MySQL
 $conn->close();
-
-
-
-
-
-
 
 ?>
 <body>
@@ -58,21 +63,23 @@ $conn->close();
 
     <div id="iden">
     <h3>VOS IDENTIFIANTS :</h3> </div>
-    
-    
+
+
     <!-- action="" -->
     <form name= "fo" method="POST">
         <div class="input">
-        <input type="email" name="mail" placeholder="Mail" /> 
+        <input type="email" name="mail" placeholder="Mail" />
         </div>
-        
+
         <div class="input">
-        
-<input type="password" name="mdp" placeholder="Mot de passe" id="mdp" /> <br>
-<input type="checkbox" id="showPassword" name="mdp" />
-<label for="showPassword">Afficher mot de passe</label>
+
+        <input type="password" name="mdp" placeholder="Mot de passe" id="mdp" /> <br>
+        <input type="checkbox" id="showPassword" name="mdp" />
+        <label for="showPassword">Afficher mot de passe</label>
         </div>
         <input type="submit" value="Connexion" name="submit"/>
+
+        <a href="deconnexion.php">Déconnexion</a>
 
     <!-- afficher mdp avec checkbox -->
     </form>
@@ -84,22 +91,22 @@ $conn->close();
        document.getElementById('mdp').type = "password";
     }
 };
-  
+
     </script>
-    
-    
+
+
 
 </body>
 
 
 <footer>
-    <?php require_once("footer.php")
-    ?>
+    <?php require_once "footer.php"
+?>
 </footer>
 </html>
 
 
 
-    
+
 </body>
 </html>
