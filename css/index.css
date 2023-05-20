@@ -55,7 +55,7 @@ text-align: center;
 .prix{
   size: 30px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
 }
 

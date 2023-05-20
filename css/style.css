@@ -1,28 +1,3 @@
-@font-face {
-    font-family: 'aileronregular';
-    src: url('Aileron-Regular-webfont.eot');
-    src: url('Aileron-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('Aileron-Regular-webfont.woff2') format('woff2'),
-         url('Aileron-Regular-webfont.woff') format('woff'),
-         url('Aileron-Regular-webfont.ttf') format('truetype'),
-         url('Aileron-Regular-webfont.svg#aileronregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'aileronbold';
-    src: url('Aileron-Bold-webfont.eot');
-    src: url('Aileron-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('Aileron-Bold-webfont.woff2') format('woff2'),
-         url('Aileron-Bold-webfont.woff') format('woff'),
-         url('Aileron-Bold-webfont.ttf') format('truetype'),
-         url('Aileron-Bold-webfont.svg#aileronbold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
 
 
 body
@@ -35,11 +10,12 @@ body
 header
 {
    
-    background-color: black;
-    opacity: 70%;
-    margin: auto;
+    background-color: grey;
+    /* opacity: 70%; */
+   
     display: flex;
-    flex-direction: row;
+
+    justify-content: flex-start; 
    
     
    
@@ -55,7 +31,7 @@ header
 {
     background-color: red;
     display: flex;
-    align-items: first baseline;
+    justify-content: flex-start;
 
 
     padding: 18px;
@@ -67,6 +43,17 @@ header
    
     
 }
+
+#carouselExampleControls{
+    width: 50%;
+    margin: auto;
+}
+.carousel-item img{
+    width: 100%;
+    height: auto;
+}
+
+
 #search
 {
     background-color: pink;

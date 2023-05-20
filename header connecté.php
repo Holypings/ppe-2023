@@ -32,7 +32,7 @@ require_once("db.php");
     </div>
 
     <div>
-        <input type="text" id="searchtext" placeholder="Recherche">
+        <input type="textc" id="searchtext" placeholder="Recherche">
     </div>
 
 
