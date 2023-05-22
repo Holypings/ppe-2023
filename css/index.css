@@ -1,10 +1,4 @@
-.chevau{
-  display: flex;
-  justify-content: center;
-   position: relative;
-  
-  
-} 
+
 
 .incroyable{
   
@@ -17,29 +11,25 @@
   
 }
 
-.carousel{
+.ensemble{
 
 display: flex;
 justify-content: center;
  position: relative;
 
-}
+} 
 
 
 
 
-body {
-  background-image: url(img/test3.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100%;
-}
+
 
 .item{
-  margin-top: 2px;
+  margin-top: 0px;
   background-color: #f00ff0 ;
   width: 500px;
   height: 300px;
+  
   
 }
 
@@ -48,20 +38,18 @@ display: flex;
 justify-content: space-between;
 size: 800px;
 margin-left: 10px;
-text-align: center;
+/* text-align: center; */
 
 }
 
 .prix{
-  size: 30px;
-  display: flex;
-  justify-content: flex-start;
-  text-align: center;
+  size: 50px;
+ text-align: center;
+
 }
 
 .nom{
-size: 30px;
-margin-left: auto;
-margin-right: auto;
+size: 100px;
+justify-content: center;
 
 }
