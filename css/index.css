@@ -2,11 +2,10 @@
 
 .incroyable{
   
+  display: flex;
   
-  text-align: center;
-  color: black;
-  font-size: 35px;
-  width: 400px;
+justify-content: center;
+margin: 30px;
   
   
 }
@@ -34,11 +33,12 @@ justify-content: center;
 }
 
 .img{
+border-radius: 20px;
 display: flex;
 justify-content: space-between;
 size: 800px;
 margin-left: 10px;
-/* text-align: center; */
+
 
 }
 
@@ -52,4 +52,18 @@ margin-left: 10px;
 size: 100px;
 justify-content: center;
 
+}
+
+button {
+  border-radius: 20px;
+  /*display: flex;
+  justify-content: space-between;
+  size: 800px;
+  margin-left: 10px; */
+  background-color: aqua;
+}
+
+.btn{
+  border-radius: 20px;
+  background-color: yellow;
 }

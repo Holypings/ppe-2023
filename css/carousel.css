@@ -1,18 +1,20 @@
-/* html,
+ html,
 body {
   height: 100%;
   margin: 0px;
-} */
+} 
 
-
+.slider-container{
+  top: 500px;
+}
 
 .slider {
+  
   width: 100%;
   max-width: 3000px;
-  height: 400px;
-  margin: 20px;
+  height: 600px;
   text-align: center;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   overflow: hidden;
   position: relative;
 }
@@ -24,6 +26,7 @@ body {
   position: relative;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  margin: 0px;
 }
 
 
@@ -35,7 +38,7 @@ body {
   flex-shrink: 0;
   width: 100%;
   max-width: 3000px;
-  height: 500px;
+  
   scroll-snap-align: center;
   margin-right: 0px;
   box-sizing: 3000px;

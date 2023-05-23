@@ -121,7 +121,7 @@ if(isset($_POST['submit']))
 
 
         <br>
-        <a href="connexion.php">Vous avez déjà un compte?</a
+        <a href="connexion.php">Vous avez déjà un compte?</a>
 
         </div>       
 

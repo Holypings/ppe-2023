@@ -23,7 +23,7 @@ require_once("db.php");
 <header>
     
 <div id="logob">
-        <a href="index.php"><img src="img/logo contour blanc.png" width="90" /></a>
+        <a href="index.php"><img src="img/logo contour blanc.png" width="130" /></a>
     </div>
 
     <div id="panier">
@@ -31,13 +31,11 @@ require_once("db.php");
         
     </div>
 
-    <div>
-        <input type="textc" id="searchtext" placeholder="Recherche">
-    </div>
+    
 
 
     <div id="user">
-        <a href="connexion.php"><img src="img/user.png" width="60" /></a>
+    <a href="inscription.php"><p>Se connecter</p></a>
     </div>
 
     <span id="search">

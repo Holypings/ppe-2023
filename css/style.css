@@ -1,4 +1,13 @@
 
+a {
+    color: white;
+    text-decoration: underline;
+}
+
+a:link{
+    text-decoration: none;
+    color: black;
+}
 
 body
 {
@@ -10,7 +19,9 @@ body
 header
 {
    
-    background-color: grey;
+    background-color: darkslategrey;
+   padding: 5px;
+   
     /* opacity: 70%; */
    
     display: flex;
@@ -29,13 +40,13 @@ header
 
 #logob
 {
-    background-color: red;
+   
     display: flex;
     justify-content: flex-start;
 
 
-    padding: 18px;
-    margin-left: 20px;
+    padding: 1px;
+    margin: 15px;
     
     
 
@@ -54,25 +65,15 @@ header
 }
 
 
-#search
-{
-    background-color: pink;
-    position: absolute;
-    top: 34px;
-    right: 200px;
 
-     
-    
-    
-}
 #panier
 {
-    background-color: blue;
+   
     height: 60px;
     position: absolute;
-    top: 34px;
+    top: 50px;
     right: 100px;
-
+    margin-right: 15px;
 
     /* margin: 15px;
     margin-top: 35px;
@@ -83,20 +84,17 @@ header
     
 }
 
-#searchtext{
-    position: absolute;
-    top: 5%;
-    right: 50%;
-}
+
 
 #user
 {
-    background-color: green;
-    height: 60px;
-    /* margin: 15px; */
+    color: white;
+    height: 200px;
+     margin-right: 20px;
     position: absolute;
-    top: 30px;
+    top: 50px;
     right: 1px;
+    text-decoration: none;
 
 
 
