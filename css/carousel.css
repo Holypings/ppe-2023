@@ -72,19 +72,7 @@ a.slide__next,
   right: 5%;
 }
 
-/* .slider::before,
-.slider::after,
-.slide__prev,
-.slide__next {
-  position: absolute;
-  top: 48%;
-  width: 20px;
-  height: 20px;
-  border: solid black;
-  border-width: 0 4px 4px 0;
-  padding: 3px;
-  box-sizing: border-box;
-} */
+
 
 .slider::before,
 .slider::after {
@@ -109,7 +97,7 @@ a.slide__next,
   height: 15px;
   width: 15px;
   border-radius: 50%;
-  background-color: black;
+  background-color: grey;
   margin: 0 10px 0 10px;
 }
 

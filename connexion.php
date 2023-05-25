@@ -8,6 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
@@ -39,7 +40,7 @@ if (isset($_POST['submit'])) {
     $row = mysqli_fetch_array($result);
 
     if ($row == null) {
-        echo "<H1>Identifiants incorrect </h1>";
+        echo "Identifiants incorrect";
         header("refresh:3; url=connexion.php");
 
     } else {
@@ -55,25 +56,30 @@ if (isset($_POST['submit'])) {
 $conn->close();
 
 ?>
-<body>
-    <div class="centre">
-    <div id="titre_principal">
-    <h2>CONNEXION</h2>
-    </div>
 
-    <div id="iden">
-    <h3>VOS IDENTIFIANTS :</h3> </div>
-
-
-    <!-- action="" -->
+    
+<div id="co-formu">
+        <img src="img/connexion formu.png" width="800" /> 
+</div>
+<span class="text-center">Connexion</span>
+   <div class="box">
     <form name= "fo" method="POST">
-        <div class="input">
-        <input type="email" name="mail" placeholder="Mail" />
-        </div>
+    <!-- <span class="text-center">Connexion</span> -->
+	<!-- <div class="input-container"> -->
+       
+        <div class="input-container">		
+		<input type="mail" id="mail" name="mail" />
+		<label>Email</label>
+	    </div>
+        
+        
 
-        <div class="input">
+        <div class="input-container">
+		<input type="password"  id="mdp" name="mdp"/>
+		<label>Mot de passe</label>		
+	</div>
 
-        <input type="password" name="mdp" placeholder="Mot de passe" id="mdp" /> <br>
+        <!-- <input type="password" name="mdp" placeholder="Mot de passe" id="mdp" /> <br> -->
         <input type="checkbox" id="showPassword" name="mdp" />
         <label for="showPassword">Afficher mot de passe</label>
         </div>
@@ -108,5 +114,5 @@ $conn->close();
 
 
 
-</body>
+
 </html>

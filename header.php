@@ -35,7 +35,7 @@ require_once("db.php");
 
 
     <div id="user">
-    <a href="index.php"><img src="img/user.png" width="60" /></a>
+    <a href="inscription.php"><img src="img/user.png" width="60" /></a>
     </div>
 
 
