@@ -1,5 +1,5 @@
 a {
-    color: white;
+    color: black;
     text-decoration: underline;
 }
 #conn {
@@ -73,9 +73,7 @@ header {
         position: absolute;
    }
     */
-    body {
-        text-align: center;
-   }
+   
     form {
         display: inline-block;
         overflow: hidden;
