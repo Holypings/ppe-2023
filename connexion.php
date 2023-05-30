@@ -83,9 +83,11 @@ $conn->close();
         <input type="checkbox" id="showPassword" name="mdp" />
         <label for="showPassword">Afficher mot de passe</label>
         </div>
-        <input type="submit" value="Connexion" name="submit"/>
+        <div class="boutons">
+        <input type="submit" value="Connexion" name="conn"/>
 
         <a href="deconnexion.php">Déconnexion</a>
+</div>
 
     <!-- afficher mdp avec checkbox -->
     </form>

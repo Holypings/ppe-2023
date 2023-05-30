@@ -11,7 +11,7 @@ require_once("db.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compte</title>
-    <link rel="stylesheet" href="styleinscri.css" />    
+    <link rel="stylesheet" href="inscri.css" />    
 
 </head>
 
