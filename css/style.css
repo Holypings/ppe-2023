@@ -1,12 +1,53 @@
+
+
+body{
+    font-family: 'Montserrat'; 
+}
+
 a {
     color: black;
     text-decoration: underline;
+    
+    
+    
 }
-#conn {
+
+#deco{
     position: relative;
     width: 100%;
-    left: 900px;
+    left: 1060px;
     bottom: 250px;
+
+}
+#submit {
+    position: relative;
+    left: 1050px;
+    bottom: 250px;
+    
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    vertical-align: middle;
+    border: 1px solid;
+    border-radius: 6px;
+    color: #24292e;
+    background-color: #fafbfc;
+    border-color: #1b1f2326;
+    box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+    transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    transition-property: color, background-color, border-color;
+    :hover {
+        background-color: #f3f4f6;
+        border-color: #1b1f2326;
+        transition-duration: 0.1s;
+    }
+
+   
+    
 }
 a:link {
     text-decoration: none;
@@ -26,9 +67,7 @@ header {
     display: flex;
     justify-content: flex-start;
 }
-#acc {
-    background-image: "accueil.png";
-}
+
 #logob {
     display: flex;
     justify-content: flex-start;
@@ -63,33 +102,42 @@ header {
     right: 1px;
     text-decoration: none;
 }
-/* @media (min-width: 768px) {
-    input[type=submit] {
-        background: #fff;
-        bottom: 2.75rem;
-        left: 2.55rem;
-        height: 2.75rem;
-        padding: 0 3rem;
-        position: absolute;
-   }
-    */
+
    
-    form {
+    #fo {
         display: inline-block;
         overflow: hidden;
-       /* padding: 10%;
-        */
+        padding: 3%;
         position: relative;
-        width: 100%;
-        left: 900px;
+        left: 990px;
         bottom: 250px;
    }
-    .co-formu {
+
+   #for {
+    display: inline-block;
+    
+    padding-bottom: 15%;
+    position: relative;
+    top: 100px;
+ right: 100px;
+  left: 80px;
+   
+   
+   
+} 
+
+#inscri-formu{
+    position: relative;
+        left: 150px;
+        top: 150px;
+}
+    #co-formu {
         position: relative;
-        left: 900px;
-        bottom: 250px;
+        left: 150px;
+        top: 110px;
+      
    }
-    .mail, .mdp {
+    .mail, .mdp, .conmdp {
         padding: 6px 12px;
        /* font-size: 20px;
         */
@@ -106,53 +154,60 @@ header {
     :focus {
         color: #212529;
         background-color: #fff;
-        border-color: #86b7fe;
+       
         outline: 0;
-        box-shadow: 0 0 0 0.25rem #000;
+        box-shadow: none;
    }
     .input-container {
         position: relative;
         margin-bottom: 25px;
+        left:100px;
+       
+      
    }
-   /* top: 50px;
-    */
-   /* left:200px;
-    */
-   /* .input-container label{
+    
+    
+   .input-container label{
         top:0px;
-        left:50px;
+     
         font-size:16px;
         color:black;
    }
-    */
+    
     .input-container input {
         border: 0;
         border-bottom: 1px solid #555;
         display: block;
         clear: left;
    }
-   /* padding:8px 0 5px 0;
-    font-size:16px;
-    color:black;
-    display:block;
-    float:left;
-    clear:right;
-    font-size:18;
-}
-*/
+ 
+
+
 .input-container input:focus {
     border: none;
     outline: none;
-    border-bottom: 1px solid #e74c3c;
+    border-bottom: 1px solid #848484;
 }
-/* input-container input:focus ~ label, .input-container input:valid ~ label{
-    font-size:18px;
+input-container input:focus ~ label, .input-container input:valid ~ label{
+    font-size:16px;
+    
 }
-*/
 .text-center {
     position: relative;
     width: 100%;
-    left: 900px;
-    bottom: 250px;
+    left: 270px;
+    bottom: 300px;
     font-size: 30px;
+}
+
+.inscri{
+    position: relative;
+    width: 100%;
+    left: 270px;
+    bottom: 500px;
+    font-size: 30px;
+}
+
+body{
+    margin: 0%;
 }

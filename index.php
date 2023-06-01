@@ -56,12 +56,11 @@ while ($row = mysqli_fetch_array($result)) {
             </div>
         </div>
 
-<section>
 
-</section>
 <H1 class="incroyable">Categories </H1>
  
-
+<img src="img/cat1.png" id = "cat1" width="600" /> 
+<img src="img/cat2.png" id = "cat2" width="590" /> 
 </body>
 
 <footer>
