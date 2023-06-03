@@ -13,14 +13,14 @@
   <div class="slider">
     <div class="slides">
       <div id="slides__1" class="slide">
-      <img src="img/car1.png" width="800">
-        <!-- <span class="slide__text">acheter</span> -->
+      <img src="img/car2.png" width="800">
+        
         <a class="slide__prev" href="#slides__4" title="Next"></a>
         <a class="slide__next" href="#slides__2" title="Next"></a>
       </div>
       <div id="slides__2" class="slide">
         
-        <img src="img/car 2.png" width="800">
+        <img src="img/car1.png" width="800">
         
         <a class="slide__prev" href="#slides__1" title="Prev"></a>
         <a class="slide__next" href="#slides__3" title="Next"></a>

@@ -24,19 +24,7 @@
             <p>06-45-45-35-45</p>
             <p>legeay.antoine@gmail.com</p>
         </div>
-        <div class="sav-footer">
-            <h3>Disponibilité téléphone</h3>
-            <ul>
-                <li>✔️ lun:10h-13h</li>
-                <li>✔️ mar:10h-15h</li>
-                <li>✔️ mer:13h-14h</li>
-                <li>✔️ jeu:22h-06h</li>
-                <li>✔️ ven:04h-05h</li>
-                <li>✔️ sam:15h-06h</li>
-                <li>✔️ dim:04h-05h</li>
-            </ul>
-
-        </div>
+      
 
     </div>
 </footer>

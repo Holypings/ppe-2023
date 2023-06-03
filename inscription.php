@@ -38,33 +38,38 @@ if(isset($_POST['submit']))
         $sql = "SELECT * FROM user WHERE mail='$mail'";
         $result1 = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result1) > 0){
-            echo "Cet email est déjà enregistré.";
-            die();
+            echo "<H1>Cet email est déjà enregistré.</H1>";
+            header("refresh:2; url=inscription.php");
+            
         }
 
         
         if(strlen($mdp) < 12) {
-            echo "Le mot de passe doit contenir au moins 12 caractères.";
-            die();
+            echo "<H1>Le mot de passe doit contenir au moins 12 caractères.</H1>";
+            header("refresh:2; url=inscription.php");
+            
         }
         elseif(!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/', $mdp)) {
-            echo "Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.";
-            die();
+            echo "<H1>Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.</H1>";
+            header("refresh:3; url=inscription.php");
+            
         }
         elseif ($mdp != $conmdp) {
-            echo "Les deux mots de passe sont différents.";
-            die();
+            echo "<H1>Les deux mots de passe sont différents.</H1>";
+            header("refresh:2; url=inscription.php");
+           
         }
        else {
             $sql="INSERT INTO user VALUES (null,'" . $nom ."','". $prenom ."','". $mdp ."','". $adresse ."','". $dateden ."','". $mail ."')";
             $result = mysqli_query($conn, $sql);
-            echo "Envoi effectué.";
-            die();
+            echo "<H1>Envoi effectué.</H1>";
+           
         }
     }
     else {
-        echo "Des champs sont incomplets.";
-        die();
+        echo "<H1>Des champs sont incomplets </h1>";
+        header("refresh:2; url=inscription.php");
+        
     }
 }
 
@@ -84,14 +89,23 @@ if(isset($_POST['submit']))
 <!-- <p id="idf"> Vos Identifiant : </p> -->
     <!-- action="" -->
     <form id="for" method="POST" onsubmit="return isValidMDP($mdp)">
+    <div class="input-container">
+            <input type="mail"  name="mail" />
+            <label>Email</label>
+        </div>
         <div class="input-container">
-        <input type="email" id="mail" name="mail" placeholder="Email" /> <br>
-        <input type="password" id ="mdp"name="mdp" placeholder="Mot de passe"  /><br>
+            <input type="password"  id="mdp" name="mdp"/>
+            <label>Mot de passe</label>
+        </div>
 
-        <input type="password"id ="conmdp" name="conmdp" placeholder="Confirmer" /><br>
+        
+        <div class="input-container">
+            <input type="password"  id="conmdp" name="conmdp"/>
+            <label>Confirmer</label>
+        </div>
         <input type="checkbox" id="showPassword" name="Mot de passe" />
         <label for="showPassword">Afficher mot de passe</label>
-</div>
+
         
         <script>
         document.getElementById('showPassword').onclick = function() {
@@ -115,20 +129,35 @@ if(isset($_POST['submit']))
         
         <form action="Inscrire.exe" method="POST">
         <div class="input-container">
-        <input type="text" name="prenom" placeholder="Prénom" /><br>
-        <input type="text" name="nom" placeholder="Nom" /><br>
-        <input type="text" name="adresse" placeholder="adresse" /><br>
-        <input type="date" name="dateden" placeholder="Votre anniversaire" /><br>
-        <input type="checkbox" name="valider"/>J'accepte les conditions<br>
-</div>
+            <input type="text"  id="prenom" name="prenom"/>
+            <label>Prénom</label>
+        </div>
+        
+        <div class="input-container">
+            <input type="text"  id="nom" name="nom"/>
+            <label>Nom</label>
+        </div>
+        <div class="input-container">
+            <input type="text"  id="adresse" name="adresse"/>
+            <label>Adresse</label>
+        </div>
+        <div class="input-container">
+            <input type="date"  id="dateden" name="dateden"/>
+            <label>Votre anniversaire</label>
+        </div>
+        
+        
+        <input type="checkbox" id="valid" name="valider"/>J'accepte les conditions<br>
+        
 
         <input type="submit" value="S'inscrire" name="submit"/>
 
 
         <br>
-        <a href="connexion.php">Vous avez déjà un compte?</a>
+       
+        <a id="deja" href="connexion.php">Vous avez déjà un compte?</a>
 
-        </div>       
+        <!-- </div>        -->
 
     </form>
     </div>
