@@ -1,36 +1,67 @@
-.chevau{
+.incroyable {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+.ensemble {
+  display: flex;
+  justify-content: center;
   position: relative;
-  margin-top: -1000px;
 }
-
-.incroyable{
-  background-color: aqua;
-  color: red;
-  font-size: 25px;
-  width: 400px;
-  
-}
-
-body {
-  background-image: url(img/accueil.png);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.item{
-  margin-top: 2px;
-  background-color: white ;
+.item {
+  margin-top: 0px;
+ 
   width: 500px;
-  height: 150px;
+  height: 300px;
 }
-
-.img{
-  position: relative;
-  float: right;
-  height: 150px;
+.img {
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  size: 800px;
   margin-left: 10px;
 }
-
-.prix{
+.prix {
+  margin-left: 250px;
   size: 50px;
+  
+  float: none;
+}
+.nom {
+  size: 100px;
+  justify-content: center;
+}
+button {
+  border-radius: 20px;
+ /* display: flex;
+  justify-content: space-between;
+  size: 800px;
+  margin-left: 10px;
+  */
+  margin: 10px;
+  background-color: whitesmoke;
+  
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #babfc3;
+  padding: 7px 16px;
+  min-height: 36px;
+  min-width: 36px;
+  color: #202223;
+  background: #ffffff;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px;
+  :hover {
+      background: #f6f6f7;
+      outline: 1px solid transparent;
+  }
+
+}
+.btn {
+  border-radius: 20px;
+  background-color: yellow;
 }
