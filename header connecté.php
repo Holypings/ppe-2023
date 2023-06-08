@@ -6,6 +6,8 @@ require_once("db.php");
 
     
 ?>
+
+
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,18 +27,17 @@ require_once("db.php");
     </div>
 
     <div id="panier">
-   
-    <a><img src="img/panier.png" title="Vous devez être connecté" width="50"/></a>
+        <a href="panier.php"> <img src="img/panier.png" width="50" /></a>
         
-    </div> 
+    </div>
 
     <div>
-        <input type="text" id="searchtext" placeholder="Recherche">
+        <input type="textc" id="searchtext" placeholder="Recherche">
     </div>
 
 
     <div id="user">
-        <a href="inscription.php"><img src="img/user.png" width="60" /></a>
+        <a href="connexion.php"><img src="img/user.png" width="60" /></a>
     </div>
 
     <span id="search">
@@ -51,7 +52,6 @@ require_once("db.php");
 
 
 
-<body>
 
 
 
@@ -60,6 +60,5 @@ require_once("db.php");
 
 
 
-</body>
 
-</html>
+
