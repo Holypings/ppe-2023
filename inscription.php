@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <?php
 require_once("db.php");
-
 ?>
 
 <head>
@@ -24,50 +22,28 @@ require_once("header.php")
 <?php
 if(isset($_POST['submit']))
 {
-    $mail = htmlentities(trim($_POST['mail']));
-    $mdp = htmlentities(trim($_POST['mdp']));
-    $conmdp = htmlentities(trim($_POST['conmdp']));
-    $prenom = htmlentities(trim($_POST['prenom']));
-    $nom = htmlentities(trim($_POST['nom']));
-    $adresse = htmlentities(trim($_POST['adresse']));
-    $dateden = htmlentities(trim($_POST['dateden']));
 
-    if($mail && $mdp && $conmdp && $prenom && $nom && $adresse && $dateden)
+$mail = htmlentities(trim($_POST['mail']));
+$mdp = htmlentities(trim($_POST['mdp']));
+$conmdp = htmlentities(trim($_POST['conmdp']));
+$prenom = htmlentities(trim($_POST['prenom']));
+$nom = htmlentities(trim($_POST['nom']));
+$adresse = htmlentities(trim($_POST['adresse']));
+$dateden = htmlentities(trim($_POST['dateden']));
+    if($mail&&$mdp&&$conmdp&&$prenom&&$nom&&$adresse&&$dateden)
     {
-        // Vérification du mot de passe
-        $sql = "SELECT * FROM user WHERE mail='$mail'";
-        $result1 = mysqli_query($conn, $sql);
-        if(mysqli_num_rows($result1) > 0){
-            echo "Cet email est déjà enregistré.";
-            die();
-        }
-
-        
-        if(strlen($mdp) < 12) {
-            echo "Le mot de passe doit contenir au moins 12 caractères.";
-            die();
-        }
-        elseif(!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/', $mdp)) {
-            echo "Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.";
-            die();
-        }
-        elseif ($mdp != $conmdp) {
-            echo "Les deux mots de passe sont différents.";
-            die();
-        }
-       else {
+        if ($mdp==$conmdp)
+        {
             $sql="INSERT INTO user VALUES (null,'" . $nom ."','". $prenom ."','". $mdp ."','". $adresse ."','". $dateden ."','". $mail ."')";
             $result = mysqli_query($conn, $sql);
-            echo "Envoi effectué.";
+            
+            echo $sql ;
             die();
-        }
-    }
-    else {
-        echo "Des champs sont incomplets.";
-        die();
-    }
+        
+        }else echo "Les deux mots de passe son différent";
+    }else echo"Des champs son incomplets";
+// aa
 }
-
 
 ?>
 <body>
@@ -81,28 +57,11 @@ if(isset($_POST['submit']))
     
     <div id="formu">
     <!-- action="" -->
-    <form method="POST" onsubmit="return isValidMDP($mdp)">
+    <form method="POST">
         <input type="email" name="mail" placeholder="Email" /> <br>
-        <input type="password" id ="mdp"name="mdp" placeholder="Mot de passe"  /><br>
-
-        <input type="password"id ="conmdp" name="conmdp" placeholder="Confirmer" /><br>
-        <input type="checkbox" id="showPassword" name="Mot de passe" />
-        <label for="showPassword">Afficher mot de passe</label>
-        
-        <script>
-        document.getElementById('showPassword').onclick = function() {
-    if ( this.checked ) {
-       document.getElementById('mdp').type = "text";
-       document.getElementById('conmdp').type = "text";
-    } else {
-       document.getElementById('mdp').type = "password";
-       document.getElementById('conmdp').type = "password";
-    }
-};
-  
-    </script>
-        
-       
+        <input type="password" name="mdp" placeholder="Mot de passe"  /><br>
+        <input type="password" name="conmdp" placeholder="Confirmer" /><br>
+        <input type="checkbox" name="Aff" />Afficher le mot de passe
 
     </div>    
 
@@ -110,7 +69,7 @@ if(isset($_POST['submit']))
 
         <div id="infopers">
         <h3>VOS INFORMATIONS PERSONNELLES :</h3></div>
-        <form action="Inscrire.exe" method="POST">
+        <form action="Inscrire.exe" method="GET">
         <input type="text" name="prenom" placeholder="Prénom" /><br>
         <input type="text" name="nom" placeholder="Nom" /><br>
         <input type="text" name="adresse" placeholder="adresse" /><br>
@@ -118,8 +77,6 @@ if(isset($_POST['submit']))
         <input type="checkbox" name="valider"/>J'accepte les conditions<br>
 
         <input type="submit" value="S'inscrire" name="submit"/>
-        <br>
-        <a href="connexion.php">Vous avez déjà un compte?</a>
         </div>       
 
     </form>

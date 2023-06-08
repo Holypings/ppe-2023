@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <?php
-
-require_once("db.php");
-
-
-    
+    require_once("db.php");
+    session_start();
 ?>
 <html lang="en">
 <head>
@@ -25,10 +22,9 @@ require_once("db.php");
     </div>
 
     <div id="panier">
-   
-    <a><img src="img/panier.png" title="Vous devez être connecté" width="50"/></a>
+        <a href="panier.php"> <img src="img/panier.png" width="50" /></a>
         
-    </div> 
+    </div>
 
     <div>
         <input type="text" id="searchtext" placeholder="Recherche">
@@ -40,11 +36,10 @@ require_once("db.php");
     </div>
 
     <span id="search">
-    <img src="img/search.png" width="50">  </a>     
+    <a href="https://youtu.be/xvFZjo5PgG0"> <img src="img/search.png" width="50">  </a>     
     </span>
 
 </header>
-
 
 
 
