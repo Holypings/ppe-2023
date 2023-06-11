@@ -11,7 +11,9 @@ require_once("db.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compte</title>
-    <link rel="stylesheet" href="style.css" />    
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">    
 
 </head>
 
@@ -157,7 +159,7 @@ if(isset($_POST['submit']))
        
         <a id="deja" href="connexion.php">Vous avez déjà un compte?</a>
 
-        <!-- </div>        -->
+        
 
     </form>
     </div>
