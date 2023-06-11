@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <?php
-    require_once("db.php");
-    session_start();
+
+require_once("db.php");
+
+
+    
 ?>
 <html lang="en">
 <head>
@@ -10,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compte</title>
     <link rel="stylesheet" href="css/style.css" />
+  
     <link rel="shortcut icon" href="logo couleur.png" />
 
 
@@ -18,28 +22,26 @@
 <header>
     
 <div id="logob">
-        <a href="index.php"><img src="img/logo contour blanc.png" width="90" /></a>
+        <a href="index.php"><img src="img/logo contour blanc.png" width="130" /></a>
     </div>
 
     <div id="panier">
-        <a href="panier.php"> <img src="img/panier.png" width="50" /></a>
+   
+    <a><img src="img/panier.png" title="Vous devez être connecté" width="50"/></a>
         
-    </div>
+    </div> 
 
-    <div>
-        <input type="text" id="searchtext" placeholder="Recherche">
-    </div>
+  
 
 
     <div id="user">
-        <a href="inscription.php"><img src="img/user.png" width="60" /></a>
+    <a href="inscription.php"><img src="img/user.png" width="60" /></a>
     </div>
 
-    <span id="search">
-    <a href="https://youtu.be/xvFZjo5PgG0"> <img src="img/search.png" width="50">  </a>     
-    </span>
+
 
 </header>
+
 
 
 
