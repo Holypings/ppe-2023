@@ -1,6 +1,6 @@
 footer {
     color: black;
-    border-top: 1px dashed black;
+    /* border-top: 1px dashed black; */
     width: 100%;
 }
 .contenu-footer {
@@ -13,4 +13,11 @@ footer {
     font-size: 20px;
     padding: 35px 0 25px;
     color: white;
+}
+
+.ul{
+    color: white;
+}
+.afooter{
+    color:white;
 }

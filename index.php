@@ -47,11 +47,11 @@ while ($row = mysqli_fetch_array($result)) {
     $prix = $row["prix"];
     echo "<div class='item'>";
     $prod = "<div class='nom'>" . $nom . "</div>";
+    
+    $img = "img/" . $id . ".png";
+    echo "<a href='Article.php?id=" . $id . "'><div class='img'><img src=" . $img . " width = '300' /></div></a>";
     echo "<a href='Article.php?id=" . $id . "'>" . $prod . "</a>";
     echo "<div class='prix'>" . $prix . ' €' . "</div>";
-    $img = "img/" . $id . ".png";
-    echo "<div class='img'><img src=" . $img . " width = '300' /></div>";
-    echo "  <button type='button'>Ajouter au panier</button>";
     echo "</div>";
 }
 ?>

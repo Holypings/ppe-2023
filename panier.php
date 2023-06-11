@@ -5,6 +5,22 @@ require_once "header connecté.php";
 <html>
 <head>
     <title>Panier</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+    <style>
+        .imgpa {
+            width: 250px;
+            
+        }
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style> <link rel="stylesheet" href="panier.css" />
 </head>
 <body>
     <h1>Votre Panier</h1>

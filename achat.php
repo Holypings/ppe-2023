@@ -8,6 +8,9 @@ require_once "header.php";
 <head>
 <link rel="stylesheet" href="css/achat.css" />
   <title>Achat</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
 </head>
 <body>
   <div class="container">
@@ -33,7 +36,7 @@ require_once "header.php";
           echo "<p style='color: red;'>Le CVV doit contenir exactement 3 chiffres.</p>";
         } else {
           echo "<p style='color: green;'>Merci de votre achat !</p>";
-          mysqli_query($conn, "DELETE FROM panier WHERE ID_USER = $userId AND ID_KB = $productId");
+         
           header("Refresh: 2; URL=index.php");
           die();
         }

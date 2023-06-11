@@ -16,9 +16,9 @@
         <div class="retrouver-footer">
             <h3>Nous retrouver</h3>
             <ul>
-                <li> <a href="#">Discord</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">github</a></li>
+                <li> <a href="#" name="afooter">Discord</a></li>
+                <li><a href="#"name="afooter">Twitter</a></li>
+                <li><a href="#"name="afooter">github</a></li>
             </ul>
         </div>
         <div class="contact-footer">

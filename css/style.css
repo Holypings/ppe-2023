@@ -7,7 +7,7 @@ body{
 a {
     
     text-decoration: underline;
-    color: black;
+    color: black; 
     
     
 }
@@ -25,7 +25,7 @@ a {
 
 a:link {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 input[type=submit]  {
     position: relative;
