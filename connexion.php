@@ -3,27 +3,35 @@ require_once "db.php";
 session_start();
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/style.css" />
+   
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>connexion</title>
 </head>
-<body>
+
 
 <header>
-<?php
-if (isset($_SESSION['ID'])) {
-    include "header connecté.php";
-} else {
-    include "header.php";}
-?>
+
+    <?php
+    if (isset($_SESSION['ID'])) {
+        include "header connecté.php";
+    } else {
+        include "header.php";}
+    ?>
+
 </header>
+
 <?php
 require_once "db.php";
-
 ?>
 
 <?php
@@ -39,6 +47,7 @@ if (isset($_POST['submit'])) {
     $row = mysqli_fetch_array($result);
 
     if ($row == null) {
+
         echo "<H1>Identifiants incorrect </h1>";
         header("refresh:3; url=connexion.php");
 
@@ -51,35 +60,45 @@ if (isset($_POST['submit'])) {
     }
 }
 
+
+
+
 // Fermez la connexion à la base de données MySQL
 $conn->close();
 
 ?>
+
 <body>
-    <div class="centre">
-    <div id="titre_principal">
-    <h2>CONNEXION</h2>
-    </div>
 
-    <div id="iden">
-    <h3>VOS IDENTIFIANTS :</h3> </div>
+<img src="img/connexion formu.png" id = "co-formu" width="800" /> 
 
+<span class="text-center" id="titre principal">Connexion</span>
 
-    <!-- action="" -->
-    <form name= "fo" method="POST">
-        <div class="input">
-        <input type="email" name="mail" placeholder="Mail" />
+<div class="box">
+    <form id= "fo" method="POST">
+        <div class="input-container">
+            <input type="mail"  name="mail" />
+            <label>Email</label>
         </div>
 
-        <div class="input">
 
-        <input type="password" name="mdp" placeholder="Mot de passe" id="mdp" /> <br>
-        <input type="checkbox" id="showPassword" name="mdp" />
-        <label for="showPassword">Afficher mot de passe</label>
+
+        <div class="input-container">
+            <input type="password"  id="mdp" name="mdp"/>
+            <label>Mot de passe</label>
         </div>
-        <input type="submit" value="Connexion" name="submit"/>
 
-        <a href="deconnexion.php">Déconnexion</a>
+        
+            <input type="checkbox" id="showPassword" name="mdp" />
+            <label for="showPassword">Afficher mot de passe</label>
+        
+
+        <div class="boutons">
+             <input type="submit" value="Connexion" name="submit"/>
+        </div>
+        <input type="button" onclick="window.location.href = 'deconnexion.php';" value="Deconnexion" />
+        
+
 
     <!-- afficher mdp avec checkbox -->
     </form>
@@ -100,13 +119,16 @@ $conn->close();
 
 
 <footer>
-    <?php require_once "footer.php"
+
+<?php 
+require_once "footer.php"
 ?>
+
 </footer>
 </html>
 
 
 
 
-</body>
+
 </html>

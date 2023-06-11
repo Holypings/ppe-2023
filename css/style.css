@@ -1,120 +1,274 @@
-@font-face {
-    font-family: 'aileronregular';
-    src: url('Aileron-Regular-webfont.eot');
-    src: url('Aileron-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('Aileron-Regular-webfont.woff2') format('woff2'),
-         url('Aileron-Regular-webfont.woff') format('woff'),
-         url('Aileron-Regular-webfont.ttf') format('truetype'),
-         url('Aileron-Regular-webfont.svg#aileronregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
 
+
+body{
+    font-family: 'Montserrat'; 
 }
 
-@font-face {
-    font-family: 'aileronbold';
-    src: url('Aileron-Bold-webfont.eot');
-    src: url('Aileron-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('Aileron-Bold-webfont.woff2') format('woff2'),
-         url('Aileron-Bold-webfont.woff') format('woff'),
-         url('Aileron-Bold-webfont.ttf') format('truetype'),
-         url('Aileron-Bold-webfont.svg#aileronbold') format('svg');
-    font-weight: normal;
-    font-style: normal;
+a {
+    
+    text-decoration: underline;
+    color: black;
+    
+    
+}
+
+#deco{
+    position: relative;
+    width: 100%;
+    left: 1060px;
+    bottom: 250px;
 
 }
 
 
-body
-{
-    background-color: #F0F0F0;
-    margin: 0px;
+    
+
+a:link {
+    text-decoration: none;
+    color: white;
 }
-
-
-header
-{
+input[type=submit]  {
+    position: relative;
    
+    margin-top: 20%;
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    vertical-align: middle;
+    border: 1px solid;
+    border-radius: 6px;
+    color: #24292e;
+    background-color: #fafbfc;
+    border-color: #1b1f2326;
+    box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+    transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    transition-property: color, background-color, border-color;
+    :hover {
+        background-color: #f3f4f6;
+        border-color: #1b1f2326;
+        transition-duration: 0.1s;
+    }
+    
+   
+    
+}
+
+input[type=button]{
+    position: relative;
+   
+    margin-top: 20%;
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    vertical-align: middle;
+    border: 1px solid;
+    border-radius: 6px;
+    color: #24292e;
+    background-color: #fafbfc;
+    border-color: #1b1f2326;
+    box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+    transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    transition-property: color, background-color, border-color;
+    :hover {
+        background-color: #f3f4f6;
+        border-color: #1b1f2326;
+        transition-duration: 0.1s;
+    }
+    
+   
+    
+}
+header {
     background-color: black;
-    opacity: 70%;
+    padding: 5px;
+   /* opacity: 70%;
+    */
+    display: flex;
+    justify-content: flex-start;
+}
+
+#logob {
+    display: flex;
+    justify-content: flex-start;
+    padding: 1px;
+    margin: 15px;
+}
+#carouselExampleControls {
+    width: 50%;
     margin: auto;
-    display: flex;
-    flex-direction: row;
-   
-    
-   
 }
-
-#acc
-{
-    background-image: "accueil.png";
+.carousel-item img {
+    width: 100%;
+    height: auto;
 }
-
-
-#logob
-{
-    background-color: red;
-    display: flex;
-    align-items: first baseline;
-
-
-    padding: 18px;
-    margin-left: 20px;
-    
-    
-
-
-   
-    
-}
-#search
-{
-    background-color: pink;
-    position: absolute;
-    top: 34px;
-    right: 200px;
-
-     
-    
-    
-}
-#panier
-{
-    background-color: blue;
+#panier {
     height: 60px;
     position: absolute;
-    top: 34px;
+    top: 50px;
     right: 100px;
-
-
-    /* margin: 15px;
+    margin-right: 15px;
+   /* margin: 15px;
     margin-top: 35px;
-    margin-left: 100px; */
+    margin-left: 100px;
+    */
+}
+#user {
+    color: white;
+    height: 200px;
+    margin-right: 20px;
+    position: absolute;
+    top: 50px;
+    right: 1px;
+    text-decoration: none;
+}
+
+   
+    #fo {
+        display: inline-block;
+        overflow: hidden;
+        padding: 3%;
+        position: relative;
+        left: 1140px;
+        bottom: 265px;
+   }
+
+   #for {
+    display: inline-block;
+    
+    padding-bottom: 20%;
+    position: relative;
+    top: 210px;
+ right: 100px;
+  left: 210px;
+   
+   
+   
+} 
+
+#inscri-formu{
+    position: relative;
+        left: 150px;
+        top: 100px;
+}
+    #co-formu {
+        position: relative;
+        left: 150px;
+        top: 110px;
+      
+   }
+    .mail, .mdp, .conmdp {
+        padding: 6px 12px;
+       /* font-size: 20px;
+        */
+        font-weight: 600;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        appearance: none;
+        border-radius: 4px;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+   }
+    :focus {
+        color: #212529;
+        background-color: #fff;
+       
+        outline: 0;
+        box-shadow: none;
+   }
+    .input-container {
+        position: relative;
+        margin-bottom: 20px;
+        /* left:100px; */
+       margin-top: 2px;
+      
+   }
+    
+    
+   .input-container label{
+        
+       
+        font-size:16px;
+        color:black;
+        
+   }
+    
+    .input-container input {
+        border: 0;
+        
+        border-bottom: 1px solid #555;
+        display: block;
+        clear: left;
+   }
+ 
+
+
+.input-container input:focus {
+    
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #848484;
+}
+input-container input:focus ~ label, .input-container input:valid ~ label{
+    font-size:16px;
    
     
+}
+.text-center {
+    position: relative;
+    width: 100%;
+    left: 400px;
+    bottom: 300px;
+    font-size: 30px;
+}
+
+.inscri{
+    position: relative;
+    width: 100%;
+    left: 370px;
+    bottom: 490px;
+    font-size: 30px;
+}
+
+body{
+    margin: 0%;
+}
+
+#deja{
+position: relative;
+    top: 20px;
+    color: black;
+}
+
+
+
+input[type=checkbox]  {
+    margin-top: 12px;
+    margin-bottom: 40px;
     
-    
 }
 
-#searchtext{
-    position: absolute;
-    top: 5%;
-    right: 50%;
-}
+#cat1{
+    position: relative;
+    left: 280px;
+    margin: 30px;
+    border-radius: 2%;
+  }
 
-#user
-{
-    background-color: green;
-    height: 60px;
-    /* margin: 15px; */
-    position: absolute;
-    top: 30px;
-    right: 1px;
+  #cat2{
+    position: relative;
+    left: 310px;
+    margin: 30px;
+    border-radius: 2%;
+  }
 
-
-
-
-    /* margin-top: 35px;
-    margin-left: 100px;
-     */
-}
+ 
