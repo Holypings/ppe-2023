@@ -22,11 +22,7 @@ session_start();
 
 <body class="body">
     <?php
-
-if (isset($_SESSION['ID'])) {
     include "header connecté.php";
-} else {
-    include "header.php";}
 
 ?>
 
@@ -39,19 +35,27 @@ require_once "test carousel.php"
 
                 <div class="ensemble">
                 <?php
-$sql = "SELECT * FROM produit";
+$sql = "SELECT * FROM produit ORDER BY RAND() LIMIT 4";
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_array($result)) {
     $id = $row["ID_KB"];
     $nom = $row["nom"];
     $prix = $row["prix"];
-    echo "<div class='item'>";
+    $promo = $row["promo"];
+    echo "<div class='item' width = '400'>";
     $prod = "<div class='nom'>" . $nom . "</div>";
     
     $img = "img/" . $id . ".png";
-    echo "<a href='Article.php?id=" . $id . "'><div class='img'><img src=" . $img . " width = '300' /></div></a>";
+    echo "<a href='Article.php?id=" . $id . "'><div class='img'><img src=" . $img . " width = '300' height = '300' /></div></a>";
     echo "<a href='Article.php?id=" . $id . "'>" . $prod . "</a>";
-    echo "<div class='prix'>" . $prix . ' €' . "</div>";
+    if ($promo == null){
+        echo "<div class='prix'>" . $prix . ' €' . "</div>";
+    }
+    else{
+        $prix = $prix * ($promo / 100);
+
+        echo "<div class='prix'> " . $prix . '€ -25%' . "</div>";
+    }
     echo "</div>";
 }
 ?>
