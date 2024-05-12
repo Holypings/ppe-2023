@@ -23,8 +23,8 @@
         </div>
         <div class="contact-footer">
             <h3>Nous contacter</h3>
-            <p>06-45-45-35-45</p>
-            <p>legeay.antoine@gmail.com</p>
+            <p>XX-XX-XX-XX-XX</p>
+            <p>Jean-Générique@gmail.com</p>
         </div>
       
 
