@@ -57,12 +57,16 @@ if (isset($_SESSION['ID'])) {
                         <?php
 while ($row = mysqli_fetch_assoc($result)) {
    $test = $row["ID_KB"];
-   $sql2 = "SELECT nom, prix FROM produit WHERE ID_KB = $test";
+   $sql2 = "SELECT nom, prix, promo FROM produit WHERE ID_KB = $test";
    $result2 = mysqli_query($conn, $sql2);
    $row2 = mysqli_fetch_array($result2);
    $img = "img/" . $test . ".png";
    $nom = $row2["nom"];
    $prix = $row2["prix"];
+   $promo = $row2["promo"];
+   if ($promo !== null){
+    $prix = $prix * ($promo / 100);
+    }
    $quantite = $row["Quantite"];
    $prixa = $prix * $quantite;
    $prixb += $prixa;
@@ -70,7 +74,15 @@ while ($row = mysqli_fetch_assoc($result)) {
                             <tr>
                                 <td><img src="<?php echo $img; ?>" class="imgpa"/></td>
                                 <td><?php echo $nom ?></td>
-                                <td><?php echo $prix . " €"; ?></td>
+                                <td>
+                                    <?php if ($promo !== null){
+                                            echo $prix . " € -25%";
+                                        }else{
+                                            echo $prix . " €";
+                                        } ?>
+                            
+                            
+                                </td>
                                 <td><?php echo $quantite; ?></td>
                                 <td>
                                     <form method="post">
