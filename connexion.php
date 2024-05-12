@@ -22,10 +22,7 @@ session_start();
 <header>
 
     <?php
-    if (isset($_SESSION['ID'])) {
         include "header connecté.php";
-    } else {
-        include "header.php";}
     ?>
 
 </header>
@@ -96,6 +93,7 @@ $conn->close();
         <div class="boutons">
              <input type="submit" value="Connexion" name="submit"/>
         </div>
+        <input type="button" onclick="window.location.href = 'inscription.php';" value="Inscription" />
         <input type="button" onclick="window.location.href = 'deconnexion.php';" value="Deconnexion" />
         
 
