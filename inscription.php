@@ -19,7 +19,7 @@ require_once("db.php");
 
 <header>
 <?php
-require_once("header.php")
+require_once("header connecté.php")
 ?>
 </header>
 
