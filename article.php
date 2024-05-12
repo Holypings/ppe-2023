@@ -20,12 +20,7 @@ session_start();
 <body>
 <div>
     <?php
-        if (isset($_SESSION['ID'])) {
-            include "header connecté.php";
-        }
-        else {
-            include "header.php";
-        }
+        include "header connecté.php";
     ?>
 </div>
 
@@ -45,14 +40,20 @@ session_start();
 
 <div class="product">
     <?php
-        if(isset($_GET["id"])){
-            $id=$_GET["id"];
-        }
-        else{
-            $id=1;
-        };
         
-        $sql = "SELECT nom, prix, description, paveNum, taille, cable,RGB , ID_COULEUR,ID_COULED , ID_SWITCH FROM produit WHERE ID_KB = $id";
+        try{
+            if(isset($_GET["id"])){
+                $id=$_GET["id"];
+            }
+            else{
+                $id=1;
+            };
+        }catch(Exception $errid){
+            echo "ID indisponible";
+        }
+        
+        
+        $sql = "SELECT nom, prix, description, paveNum, taille, cable,RGB , ID_COULEUR,ID_COULED , ID_SWITCH, promo FROM produit WHERE ID_KB = $id";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($result);
         $nom = $row["nom"];
@@ -65,6 +66,8 @@ session_start();
         $coulmem = $row["ID_COULEUR"];
         $ledmem = $row["ID_COULED"];
         $switchmem = $row["ID_SWITCH"];
+        $promo = $row["promo"];
+        $prixmem = $prix;
 
         $sql1 = "SELECT couleurkb FROM couleurkb WHERE ID_COULEUR = $coulmem";
         $result1 = mysqli_query($conn, $sql1);
@@ -84,7 +87,7 @@ session_start();
         $switchcoul =$row3["couleur"];
 
         echo "<div class='nom'>" . $nom . "</div>";
-        echo "<div class='prix'>" . $prix . ' €' . "</div>";
+        
         echo "<div class='description'>" . $desc . "</div>";
     
         if ($paveNum == 1){
@@ -106,6 +109,22 @@ session_start();
         echo "<div class='couleur'> Couleur : " . $couleur . "</div>";
         echo "<div class='led'>Led : " . $led . "</div>";
         echo "<div class='switch'> Switch : " . $switchmod ." ". $switchcoul ." ". $switchfab . "</div>";
+
+
+        try {
+            if ($promo == null) {
+                echo "<div class='prix'>" . $prix . ' €' . "</div>";
+            } else {
+                $prixmem = $prix; // Store the original price
+                $prix = $prix * (1 - ($promo / 100)); // Calculate the discounted price
+        
+                echo "<div class='prix'> prix normal: " . $prixmem . '€' . "</div>";
+                echo "<div class='prix'> " . $prix . '€ - ' . $promo . '%' . "</div>";
+            }
+        } catch (Exception $errpromo) {
+            echo "Promotion indisponible";
+        }
+        
     ?>
     
 
