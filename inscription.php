@@ -3,7 +3,6 @@
 
 <?php
 require_once("db.php");
-
 ?>
 
 <head>
@@ -13,19 +12,21 @@ require_once("db.php");
     <title>Compte</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">    
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">    
 </head>
 
 <header>
 <?php
-require_once("header connecté.php")
+require_once("header connecté.php");
 ?>
 </header>
 
 <?php
-if(isset($_POST['submit']))
-{
+function isValidMDP($mdp) {
+    return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/', $mdp);
+}
+
+if(isset($_POST['submit'])){
     $mail = htmlentities(trim($_POST['mail']));
     $mdp = htmlentities(trim($_POST['mdp']));
     $conmdp = htmlentities(trim($_POST['conmdp']));
@@ -34,141 +35,124 @@ if(isset($_POST['submit']))
     $adresse = htmlentities(trim($_POST['adresse']));
     $dateden = htmlentities(trim($_POST['dateden']));
 
-    if($mail && $mdp && $conmdp && $prenom && $nom && $adresse && $dateden)
-    {
-        // Vérification du mot de passe
+    if($mail && $mdp && $conmdp && $prenom && $nom && $adresse && $dateden){
+
         $sql = "SELECT * FROM user WHERE mail='$mail'";
         $result1 = mysqli_query($conn, $sql);
+
         if(mysqli_num_rows($result1) > 0){
-            echo "<H1>Cet email est déjà enregistré.</H1>";
+            echo "<h1>Cet email est déjà enregistré.</h1>";
             header("refresh:2; url=inscription.php");
-            
+            exit();
         }
 
-        
-        if(strlen($mdp) < 12) {
-            echo "<H1>Le mot de passe doit contenir au moins 12 caractères.</H1>";
+        if (!isValidMDP($mdp)) {
+            echo "<h1>Le mot de passe n'est pas valide.</h1>";
             header("refresh:2; url=inscription.php");
-            
+            exit();
         }
-        elseif(!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/', $mdp)) {
-            echo "<H1>Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.</H1>";
-            header("refresh:3; url=inscription.php");
-            
+
+        $sql = "INSERT INTO user VALUES (null, '$nom', '$prenom', '$mdp', '$dateden', '$adresse' , '$mail', 1)";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            echo "<h1>Envoi effectué.</h1>";
+        } else {
+            echo "<h1>Erreur lors de l'enregistrement: " . mysqli_error($conn) . "</h1>";
         }
-        elseif ($mdp != $conmdp) {
-            echo "<H1>Les deux mots de passe sont différents.</H1>";
-            header("refresh:2; url=inscription.php");
-           
-        }
-       else {
-            $sql="INSERT INTO user VALUES (null,'" . $nom ."','". $prenom ."','". $mdp ."','". $adresse ."','". $dateden ."','". $mail ."')";
-            $result = mysqli_query($conn, $sql);
-            echo "<H1>Envoi effectué.</H1>";
-           
-        }
-    }
-    else {
-        echo "<H1>Des champs sont incomplets </h1>";
+    } else {
+        echo "<h1>Des champs sont incomplets.</h1>";
         header("refresh:2; url=inscription.php");
-        
     }
 }
-
-
 ?>
+
 <body>
+    <img src="img/inscri formu.png" id="inscri-formu" width="800" /> 
+    <span class="inscri" id="inscri">Inscription</span>
 
-<img src="img/inscri formu.png" id = "inscri-formu" width="800" /> 
+    <form id="for" method="POST" action="inscription.php" onsubmit="return verifMDP()">
 
-    
-<span class="inscri" id="inscri">Inscription</span>
-
-
-
-
- 
-<!-- <p id="idf"> Vos Identifiant : </p> -->
-    <!-- action="" -->
-    <form id="for" method="POST" onsubmit="return isValidMDP($mdp)">
-    <div class="input-container">
-            <input type="mail"  name="mail" />
+        <div class="input-container">
+            <input type="mail" name="mail" />
             <label>Email</label>
         </div>
+
         <div class="input-container">
-            <input type="password"  id="mdp" name="mdp"/>
+            <input type="password" id="mdp" name="mdp"/>
             <label>Mot de passe</label>
         </div>
 
-        
         <div class="input-container">
-            <input type="password"  id="conmdp" name="conmdp"/>
+            <input type="password" id="conmdp" name="conmdp"/>
             <label>Confirmer</label>
         </div>
-        <input type="checkbox" id="showPassword" name="Mot de passe" />
+
+        <input type="checkbox" id="showPassword" name="showPassword" />
         <label for="showPassword">Afficher mot de passe</label>
 
-        
         <script>
-        document.getElementById('showPassword').onclick = function() {
-    if ( this.checked ) {
-       document.getElementById('mdp').type = "text";
-       document.getElementById('conmdp').type = "text";
-    } else {
-       document.getElementById('mdp').type = "password";
-       document.getElementById('conmdp').type = "password";
-    }
-};
-  
-    </script>
-        
-       
+            document.getElementById('showPassword').onclick = function() {
+                if (this.checked) {
+                    document.getElementById('mdp').type = "text";
+                    document.getElementById('conmdp').type = "text";
+                } else {
+                    document.getElementById('mdp').type = "password";
+                    document.getElementById('conmdp').type = "password";
+                }
+            }
 
-       
+            function verifMDP() {
+                const mdp = document.getElementById('mdp').value;
+                const conmdp = document.getElementById('conmdp').value;
+                const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/;
 
+                if (!regex.test(mdp)) {
+                    alert("Le mot de passe doit contenir au moins 12 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.");
+                    return false;
+                }
 
-          
-        
-        <form action="Inscrire.exe" method="POST">
+                if (mdp !== conmdp) {
+                    alert("Les deux mots de passe sont différents.");
+                    return false;
+                }
+
+                return true;
+            }
+        </script>
+
         <div class="input-container">
-            <input type="text"  id="prenom" name="prenom"/>
+            <input type="text" id="prenom" name="prenom"/>
             <label>Prénom</label>
         </div>
-        
+
         <div class="input-container">
-            <input type="text"  id="nom" name="nom"/>
+            <input type="text" id="nom" name="nom"/>
             <label>Nom</label>
         </div>
+
         <div class="input-container">
-            <input type="text"  id="adresse" name="adresse"/>
+            <input type="text" id="adresse" name="adresse"/>
             <label>Adresse</label>
         </div>
+
         <div class="input-container">
-            <input type="date"  id="dateden" name="dateden"/>
+            <input type="date" id="dateden" name="dateden"/>
             <label>Votre anniversaire</label>
         </div>
-        
-        
+
         <input type="checkbox" id="valid" name="valider"/>J'accepte les conditions<br>
-        
 
         <input type="submit" value="S'inscrire" name="submit"/>
 
-
         <br>
-       
+
         <a id="deja" href="connexion.php">Vous avez déjà un compte?</a>
 
-        
-
     </form>
-    </div>
 
 </body>
 
-
 <footer>
-    <?php require_once("footer.php")
-    ?>
+    <?php require_once("footer.php"); ?>
 </footer>
 </html>
