@@ -3,7 +3,6 @@
 <?php
 require_once "db.php";
 session_start();
-
 ?>
 
 <head>
@@ -15,14 +14,15 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
-</head>
 
 <body>
+
 <div>
     <?php
             include "header connecté.php";
     ?>
 </div>
+
 <div>
 <form action="recherche.php" method="post">
         <label for="nom">Nom du Produit:</label>
