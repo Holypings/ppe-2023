@@ -41,15 +41,13 @@ session_start();
 <div class="product">
     <?php
         
-        try{
-            if(isset($_GET["id"])){
-                $id=$_GET["id"];
+        try {
+            if (!isset($_GET["id"]) || empty($_GET["id"])) {
+                throw new Exception("ID vide");
             }
-            else{
-                $id=1;
-            };
-        }catch(Exception $errid){
-            echo "ID indisponible";
+            $id = $_GET["id"];
+        } catch (Exception $errid) {
+            header('Location: index.php');
         }
         
         
@@ -111,18 +109,14 @@ session_start();
         echo "<div class='switch'> Switch : " . $switchmod ." ". $switchcoul ." ". $switchfab . "</div>";
 
 
-        try {
-            if ($promo == null) {
-                echo "<div class='prix'>" . $prix . ' €' . "</div>";
-            } else {
-                $prixmem = $prix; // Store the original price
-                $prix = $prix * (1 - ($promo / 100)); // Calculate the discounted price
+        if ($promo == null) {
+            echo "<div class='prix'>" . $prix . ' €' . "</div>";
+        } else {
+            $prixmem = $prix;
+            $prix = $prix * (1 - ($promo / 100));
         
-                echo "<div class='prix'> prix normal: " . $prixmem . '€' . "</div>";
-                echo "<div class='prix'> " . $prix . '€ - ' . $promo . '%' . "</div>";
-            }
-        } catch (Exception $errpromo) {
-            echo "Promotion indisponible";
+            echo "<div class='prix'> prix normal: " . $prixmem . '€' . "</div>";
+            echo "<div class='prix'> " . $prix . '€ - ' . $promo . '%' . "</div>";
         }
         
     ?>
@@ -159,6 +153,7 @@ session_start();
 
 
 </html>
+
 <?php
 require_once "footer.php"
 ?>
