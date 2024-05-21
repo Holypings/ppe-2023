@@ -94,7 +94,11 @@ $conn->close();
              <input type="submit" value="Connexion" name="submit"/>
         </div>
         <input type="button" onclick="window.location.href = 'inscription.php';" value="Inscription" />
+    
+        <?php if (isset($_SESSION['ID'])) { ?>
         <input type="button" onclick="window.location.href = 'deconnexion.php';" value="Deconnexion" />
+
+        <?php }?>
         
 
 
