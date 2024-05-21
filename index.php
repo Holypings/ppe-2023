@@ -54,7 +54,7 @@ while ($row = mysqli_fetch_array($result)) {
     else{
         $prix = $prix * ($promo / 100);
 
-        echo "<div class='prix'> " . $prix . '€ -25%' . "</div>";
+        echo "<div class='prix'> " . $prix . '€ -'.$promo.'% du prix' . "</div>";
     }
     echo "</div>";
 }
